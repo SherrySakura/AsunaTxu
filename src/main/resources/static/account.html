@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Asuna的文本小工具-我的账户</title>
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+    <!--linear icon css-->
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+
+    <!--bootstrap.min.css-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!--style.css-->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--responsive.css-->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link rel="stylesheet" href="layui/css/layui.css">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="js/common.js"></script>
+    <script src="layui/layui.js"></script>
+
+    <style>
+        .little-png{
+            width: 15px;
+            height: 15px;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="brand">
+            <a href="index.html">
+                Asuna<span>Txu</span>
+            </a>
+        </div><!--/.brand -->
+        <div class="container-fluid">
+            <div class="navbar-btn">
+                <button type="button" class="btn-toggle-fullwidth">
+                    <i class="lnr lnr-arrow-left-circle"></i>
+                </button>
+            </div><!--/.navbar-btn -->
+            <form class="navbar-form navbar-left">
+                <div class="search-group">
+                    <button type="button"><i data-feather="search"></i></button>
+                    <input type="text" value="" placeholder="Search..">
+                </div><!--/.search-group -->
+            </form><!--/form -->
+            <div class="navbar-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="assets/images/parson.png" class="img-circle" alt="parson-img">
+                            <i class="icon-submenu fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="account.html"><i class="lnr lnr-user"></i> <span>我的账户</span></a></li>
+                            <li><a href="#"><i class="lnr lnr-envelope"></i> <span>我的消息</span></a></li>
+                            <li><a href="#"><i class="lnr lnr-cog"></i> <span>设置</span></a></li>
+                            <li><a href="#"><i class="lnr lnr-exit"></i> <span>登出</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div><!--/.container-fluid -->
+
+    </nav><!--/nav -->
+    <!-- END NAVBAR -->
+
+    <div id="sidebar-nav" class="sidebar">
+        <div class="sidebar-scroll">
+            <nav>
+                <ul class="nav">
+
+                    <li>
+                        <a href="my_home.html" >
+                            <i data-feather="home"></i> <span>摘要</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="detail.html">
+                            <i data-feather="package"></i> <span>历史详细</span>
+                        </a>
+                    </li>
+
+                    <li class="active">
+                        <a href="account.html">
+                            <i data-feather="package"></i><span>我的账户</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+    <!-- END LEFT SIDEBAR -->
+    <!-- MAIN -->
+    <div class="main">
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+
+                <div class="main-content-head">
+                    <h2>hello <span style="color: #0099ff" id="userName">Asuna</span></h2>
+                    <p>欢迎使用Asuna的文本统计后台</p>
+                </div>
+
+                <div class="profile-content">
+                    <div class="row">
+
+                        <div class="col-sm-4">
+                            <div class="profile-state">
+                                <div class="icon-box">
+								    <span class="icon-bg icon-bg-1">
+									    <img class="little-png" src="assets/images/icon-6.png" alt="user-icon">
+								    </span>
+                                    <h2>用户名</h2>
+                                </div><!--/.icon-box-->
+                                <h3 style="color: #0099ff" class="pv" id="name">0</h3>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="profile-state">
+                                <div class="icon-box">
+								    <span class="icon-bg icon-bg-1">
+									    <img class="little-png" src="assets/images/icon-mail.png" alt="user-icon">
+								    </span>
+                                    <h2>绑定的邮箱</h2>
+                                </div><!--/.icon-box-->
+                                <h3 class="pv" style="color: #0099ff" id="mail">0</h3>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="profile-state">
+                                <div class="icon-box">
+								<span class="icon-bg icon-bg-1">
+									<img class="little-png" src="assets/images/icon-5.png" alt="user-icon">
+								</span>
+                                    <h2>最近活跃</h2>
+                                </div><!--/.icon-box-->
+                                <h3><span class="layui-badge layui-bg-blue" id="len">0</span></h3>
+                            </div><!--/.profile-state-->
+                        </div>
+                    </div><!--end row-->
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="profile-state">
+                                <div class="icon-box">
+								    <span class="icon-bg icon-bg-1">
+									    <img class="little-png" src="assets/images/icon-lvl.png" alt="user-icon">
+								    </span>
+                                    <div>
+                                            <h2>等级 <span class="layui-badge layui-bg-red" id="lvl">1</span></h2>
+                                            <h2 style="float: right">再处理<span id="remainChar" style="color: #ff3f77;"> 810 </span>字符到达下一等级</h2>
+                                    </div>
+                                    <h2></h2>
+                                </div><!--/.icon-box-->
+                                <div class="progress">
+                                    <div id="progress" class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 19%;">
+                                        <span id="perText">19%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var hasExp = 0;
+    window.onload = function (ev) {
+        var uuid = getCookie("uuid");
+
+        if (uuid === ''){
+            alert("请先登录");
+            window.location.href = "login.html";
+        }else{
+            var name = getCookie("account_name");
+            var cur = "currentAccount?id=" + uuid;
+            document.getElementById("userName").innerText = name;
+
+            var actUrl = "active?uuid=" + uuid;
+            ajaxGet(cur, formatAccount);
+            ajaxGet(actUrl, formatActive);
+        }
+    };
+
+    function formatAccount(data) {
+        console.log(data);
+        var lvl = document.getElementById("lvl");
+        lvl.innerText = data.data.level;
+        document.getElementById("name").innerText = data.data.account;
+        document.getElementById("mail").innerText = data.data.mail;
+        hasExp = data.data.exp;
+        var levelHref = "level?lv=" + data.data.level;
+        ajaxGet(levelHref, formatLevel);
+    }
+
+    function formatLevel(data) {
+        var l = data.data.level;
+        var e = data.data.exp;
+        var per = (hasExp / e) * 100;
+        per = per.toFixed(0);
+        document.getElementById("perText").innerText = per + "%";
+        var remain = e - hasExp;
+        document.getElementById("progress").style.width = per + "%";
+        document.getElementById("remainChar").innerText = remain;
+    }
+
+    function formatActive(data) {
+
+    }
+</script>
+</body>
+</html>

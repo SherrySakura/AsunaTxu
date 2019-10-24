@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务详细</title>
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+    <!--linear icon css-->
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+
+    <!--bootstrap.min.css-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!--style.css-->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--responsive.css-->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link rel="stylesheet" href="layui/css/layui.css">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="js/common.js"></script>
+    <script src="layui/layui.js"></script>
+    <style>
+        .little-png{
+            width: 15px;
+            height: 15px;
+        }
+
+        .pv{
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="brand">
+            <a href="index.html">
+                Asuna<span>Txu</span>
+            </a>
+        </div><!--/.brand -->
+        <div class="container-fluid">
+            <div class="navbar-btn">
+                <button type="button" class="btn-toggle-fullwidth">
+                    <i class="lnr lnr-arrow-left-circle"></i>
+                </button>
+            </div><!--/.navbar-btn -->
+            <form class="navbar-form navbar-left">
+                <div class="search-group">
+                    <button type="button"><i data-feather="search"></i></button>
+                    <input type="text" value="" placeholder="Search..">
+                </div><!--/.search-group -->
+            </form><!--/form -->
+            <div class="navbar-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="assets/images/parson.png" class="img-circle" alt="parson-img">
+                            <i class="icon-submenu fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="account.html"><i class="lnr lnr-user"></i> <span>我的账户</span></a></li>
+                            <li><a href="#"><i class="lnr lnr-envelope"></i> <span>我的消息</span></a></li>
+                            <li><a href="#"><i class="lnr lnr-cog"></i> <span>设置</span></a></li>
+                            <li><a href="#"><i class="lnr lnr-exit"></i> <span>登出</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div><!--/.container-fluid -->
+
+    </nav><!--/nav -->
+    <!-- END NAVBAR -->
+
+    <div id="sidebar-nav" class="sidebar">
+        <div class="sidebar-scroll">
+            <nav>
+                <ul class="nav">
+
+                    <li>
+                        <a href="my_home.html" >
+                            <i data-feather="home"></i> <span>摘要</span>
+                        </a>
+                    </li>
+
+                    <li class="active">
+                        <a href="detail.html">
+                            <i data-feather="package"></i> <span>历史详细</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="account.html">
+                            <i data-feather="package"></i><span>我的账户</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+    <!-- END LEFT SIDEBAR -->
+    <!-- MAIN -->
+    <div class="main">
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+
+                <div class="main-content-head">
+                    <h2>hello <span style="color: #0099ff" id="userName">Asuna</span></h2>
+                    <p>欢迎使用Asuna的文本统计后台</p>
+                </div>
+                <div class="profile-content">
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="profile-state">
+                                <div class="icon-box">
+								<span class="icon-bg icon-bg-1">
+									<img class="little-png" src="assets/images/icon-1.png" alt="user-icon">
+								</span>
+                                    <h2>提交ID</h2>
+                                </div><!--/.icon-box-->
+                                <p class="pv" id="taskId">0</p>
+                            </div><!--/.profile-state-->
+                        </div><!--/.col-->
+
+                        <div class="col-sm-3">
+                            <div class="profile-state">
+                                <div class="icon-box">
+								<span class="icon-bg icon-bg-1">
+									<img class="little-png" src="assets/images/icon-2.png" alt="user-icon">
+								</span>
+                                    <h2>提交时间</h2>
+                                </div><!--/.icon-box-->
+                                <p class="pv" id="time">0</p>
+                            </div><!--/.profile-state-->
+                        </div><!--/.col-->
+
+                        <div class="col-sm-3">
+                            <div class="profile-state">
+                                <div class="icon-box">
+								<span class="icon-bg icon-bg-1">
+									<img class="little-png" src="assets/images/icon-3.png" alt="user-icon">
+								</span>
+                                    <h2>字符量</h2>
+                                </div><!--/.icon-box-->
+                                <p class="pv" id="length">0</p>
+                            </div><!--/.profile-state-->
+                        </div><!--/.col-->
+
+                        <div class="col-sm-3">
+                            <div class="profile-state">
+                                <div class="icon-box">
+								<span class="icon-bg icon-bg-1">
+									<img class="little-png" src="assets/images/icon-4.png" alt="user-icon">
+								</span>
+                                    <h2>类型/金额</h2>
+                                </div><!--/.icon-box-->
+                                <p class="pv" id="fee">0</p>
+                            </div><!--/.profile-state-->
+                        </div><!--/.col-->
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="profile-state">
+                                <div class="icon-box">
+                                    <h2>原始提交</h2>
+                                </div><!--/.icon-box-->
+                                <h3 id="ori">0</h3>
+                            </div><!--/.profile-state-->
+                        </div><!--/.col-->
+
+                        <div class="col-sm-6">
+                            <div class="profile-state">
+                                <div class="icon-box">
+                                    <h2>处理结果</h2>
+                                </div><!--/.icon-box-->
+                                <h3 id="handled">0</h3>
+                            </div><!--/.profile-state-->
+                        </div><!--/.col-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<footer>
+    <div class="container-fluid">
+        <p>Copyright &copy; 2019.Company name All rights reserved.<a target="_blank" href="http://www.asunapro.com">Asuna的文本小工具</a></p>
+    </div>
+
+</footer>
+
+<script>
+    window.onload = function (ev) {
+        var uuid = getCookie("uuid");
+        var taskParam = getParam("taskUid");
+        if (uuid === ''){
+            alert("请先登录");
+            window.location.href = "login.html";
+        }else{
+            var un = document.getElementById("userName");
+            un.innerText = getCookie("account_name");
+            var task = "more?uuid=" + uuid + "&taskUid=" + taskParam;
+            ajaxGet(task, formatMore);
+        }
+    };
+
+    function formatMore(data) {
+        var id = document.getElementById("taskId");
+        var time = document.getElementById("time");
+        var len = document.getElementById("length");
+        var fee = document.getElementById("fee");
+        var ori = document.getElementById("ori");
+        var handled = document.getElementById("handled");
+
+        id.innerText = data.data.id;
+        time.innerText = data.data.time;
+        len.innerText = data.data.length;
+        var f = (data.data.fee) / 1000000;
+        f = f.toFixed(2);
+        fee.innerText = data.data.taskType + " / " + f;
+        ori.innerText = data.data.ori;
+        handled.innerText = data.data.handled;
+    }
+</script>
+
+<script  src="assets/js/jquery.min.js"></script>
+
+<!--bootstrap.min.js-->
+<script src="assets/js/bootstrap.min.js"></script>
+
+<!--jquery.slimscroll.min.js-->
+<script src="assets/js/jquery.slimscroll.min.js"></script>
+
+<!--feather.min.js-->
+<script src="assets/js/feather.min.js"></script>
+
+<!-- DataMaps Plugin Js -->
+<script src="assets/js/d3.min.js"></script>
+<script src="assets/js/topojson.js"></script>
+
+<!--fontawesome-all.min.js-->
+<script src="assets/js/fontawesome-all.min.js"></script>
+</body>
+</html>
