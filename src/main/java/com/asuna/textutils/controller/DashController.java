@@ -69,6 +69,11 @@ public class DashController {
         return levelHandler.getLevelByLv(lv);
     }
 
+    /**
+     * 判断用户登录频次
+     * @param uuid
+     * @return
+     */
     @RequestMapping(value = "/active")
     public Object getActive(Integer uuid){
         return null;

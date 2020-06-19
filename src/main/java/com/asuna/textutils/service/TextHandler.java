@@ -35,16 +35,19 @@ public class TextHandler {
     @Autowired
     private AccountHandler accountHandler;
 
+
+
     public TextHandler() {
     }
 
     /**
-     * 去除多余空格服务
+     * 去除多余空格服务以及引用中的[1]或者[1,2]或者[1-7]格式
      * @param ori
      * @return
      */
     public String dropBlank(String ori, Integer uuid){
         String handled = TextUtils.dropBlank(ori);
+        handled = TextUtils.dropRef(handled);
         if (uuid != null){
             missionHandler.setUuid(uuid);
             missionHandler.getCurrentMission();
@@ -92,15 +95,15 @@ public class TextHandler {
      * @param ori
      * @return
      */
-    public TemplateResultBase<TranslateResult> translateService(String ori, Integer uuid) throws IOException, NoSuchAlgorithmException, JSONException {
+    public TemplateResultBase<TranslateResult> translateService(String ori, Integer uuid, String from, String to) throws IOException, NoSuchAlgorithmException, JSONException {
         String str = TextUtils.dropBlank(ori);
         int len = str.length();
         Map<String, String> params = new HashMap<>();
 
         String salt = String.valueOf(System.currentTimeMillis());
         params.put("q", str);
-        params.put("from", translateAPIProperty.getFrom());
-        params.put("to", translateAPIProperty.getTo());
+        params.put("from", from);
+        params.put("to", to);
         params.put("signType", translateAPIProperty.getSignType());
         params.put("appKey", translateAPIProperty.getAppKey());
         params.put("salt", salt);

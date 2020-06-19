@@ -6,14 +6,16 @@ import com.asuna.textutils.service.TextHandler;
 import com.asuna.textutils.service.AccountHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-
+@CrossOrigin(origins = "http://www.asunapro.com")
 @RestController
+@RequestMapping("/api")
 public class CoreController {
 
     @Autowired
@@ -27,6 +29,7 @@ public class CoreController {
 
     @RequestMapping(value = "/blank", method = RequestMethod.POST)
     public Object getTextWithoutBlank(String message, Integer uuid){
+        System.out.println(message);
         TemplateResultBase<TextHandleResult> result = new TemplateResultBase<>();
         String res = textHandler.dropBlank(message, uuid);
         TextHandleResult handleResult = new TextHandleResult(res);
@@ -44,10 +47,10 @@ public class CoreController {
     }
 
     @RequestMapping(value = "/trans", method = RequestMethod.POST)
-    public Object trans(String message, Integer uuid){
+    public Object trans(String message, Integer uuid, String from, String to){
         TemplateResultBase<TranslateResult> result = null;
         try {
-            result = textHandler.translateService(message, uuid);
+            result = textHandler.translateService(message, uuid, from, to);
         } catch (IOException | NoSuchAlgorithmException | JSONException e) {
             e.printStackTrace();
         }

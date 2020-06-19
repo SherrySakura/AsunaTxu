@@ -56,6 +56,7 @@ public class AccountHandler {
                 return result;
             }
         }catch (Exception e){
+            e.printStackTrace();
             result.setStatus(501, null, "服务端繁忙");
             return result;
         }

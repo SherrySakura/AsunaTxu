@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Service
@@ -37,8 +38,8 @@ public class MissionHandler {
         }
         if (checkDate()){
             clearToday();
-
         }
+        System.out.println(globalMission);
     }
 
     public void increaseCommit(int count){
@@ -74,7 +75,10 @@ public class MissionHandler {
         TimeUtils timeUtils = new TimeUtils(TimeUtils.DATE);
         try {
             Date his = timeUtils.convertStringToDate(globalMission.getDate());
-            if (now.getDate() - his.getDate() >= 1){
+            int nowDays = now.getYear() * 365 + now.getMonth() * 12 + now.getDay();
+            int hisDays = his.getYear() * 365 + his.getMonth() * 12 + his.getDay();
+            if (nowDays - hisDays >= 1){
+                System.out.println(now.getDate() - his.getDate());
                 return true;
             }
             return false;

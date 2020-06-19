@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @Mapper
 public interface AccountDAO {
@@ -36,4 +38,18 @@ public interface AccountDAO {
 
     @Update("update user set level=#{ac.level}, exp=#{ac.exp} where id=#{uuid}")
     void updateAccount(@Param("ac") Account account, @Param("uuid") int uuid);
+
+    @Select("select * from user")
+    @Results({
+            @Result(column = "password", property = "password"),
+            @Result(column = "id", property = "id"),
+            @Result(column = "name", property = "account"),
+            @Result(column = "gender", property = "gender"),
+            @Result(column = "mail", property = "mail"),
+            @Result(column = "phone", property = "phone"),
+            @Result(column = "balance", property = "balance"),
+            @Result(column = "level", property = "level"),
+            @Result(column = "exp", property = "exp"),
+    })
+    List<Account> getAllAccountPassword();
 }

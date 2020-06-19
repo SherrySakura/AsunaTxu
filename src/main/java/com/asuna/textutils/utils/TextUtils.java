@@ -1,6 +1,11 @@
 package com.asuna.textutils.utils;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class TextUtils {
+
+    private final static String REF_MATCH_PARTEN = "\\[[0-9]{1,3}\\]|\\[([0-9]{1,3}(,|，)){1,10}[0-9]{1,3}\\]|\\[[0-9]{1,3}-[0-9]{1,3}\\]";
 
     public static String dropBlank(String ori){
         String result = "";
@@ -89,5 +94,14 @@ public class TextUtils {
             return true;
         }
         return false;
+    }
+
+    public static String dropRef(String ori){
+        if (ori == null || ori.isEmpty()){
+            return "";
+        }
+        String res = "";
+        res = ori.replaceAll(REF_MATCH_PARTEN, "");
+        return res;
     }
 }
